@@ -85,7 +85,9 @@ class ClsPredictor(Predictor):
             self.auto_logger.times.stamp()
 
         input_tensor.copy_from_cpu(image)
-        self.paddle_predictor.run()
+
+        for i in range(10000):
+            self.paddle_predictor.run()
         batch_output = output_tensor.copy_to_cpu()
         if self.benchmark:
             self.auto_logger.times.stamp()
@@ -131,6 +133,9 @@ def main(config):
                       format(filename, clas_ids, scores_str, label_names))
             batch_imgs = []
             batch_names = []
+
+            return
+
     if cls_predictor.benchmark:
         cls_predictor.auto_logger.report()
     return

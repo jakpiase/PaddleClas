@@ -10,7 +10,7 @@ Global:
   ir_optim: True
   use_tensorrt: False
   gpu_mem: 8000
-  enable_profile: False
+  enable_profile: True
 
 PreProcess:
   transform_ops:
